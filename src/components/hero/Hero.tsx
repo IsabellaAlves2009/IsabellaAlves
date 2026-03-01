@@ -2,6 +2,8 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect } from "react";
 import { ParticleCanvas } from "../ParticleCanvas/ParticleCanvas"; 
 import "./hero.css";
+import { ProjectSection } from "../projects/projectSection";
+import { Contact } from "../contact/Contact";
 
 export function Hero() {
   const mouseX = useMotionValue(0);

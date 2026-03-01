@@ -12,7 +12,8 @@ const projects = [
     description: "Uma plataforma dinâmica para explorar o mundo do cinema, com filtros inteligentes e uma interface focada na experiência do usuário.",
     color: "#0a0a0a", 
     image: imgMovie, 
-    repository: "#"
+    projectLink: "https://movie-explorer-nu-sand.vercel.app/",
+    repository: "https://github.com/IsabellaAlves2009/movie-explorer.git"
   },
   {
     title: "To do list",
@@ -20,7 +21,8 @@ const projects = [
     description: "Aplicação de produtividade minimalista com foco em alta performance e organização de tarefas de forma intuitiva.",
     color: "#470606", 
     image: imgTodo,
-    repository: "#"
+    projectLink: "https://to-do-list-hazel-omega-31.vercel.app/",
+    repository: "https://github.com/IsabellaAlves2009/to-do-list-TS.git"
   },
   {
     title: "Paint Color",
@@ -28,7 +30,8 @@ const projects = [
     description: "Uma ferramenta interativa para designers testarem paletas de cores e composições visuais em tempo real no navegador.",
     color: "#0a0a0a", 
     image: imgPaint,
-    repository: "#"
+    projectLink: "https://isabellaalves2009.github.io/Paint_JS/",
+    repository: "https://github.com/IsabellaAlves2009/Paint_JS.git"
   },
 ];
 
@@ -50,7 +53,7 @@ const cardVariants: Variants = {
 
 export function ProjectSection() {
   return (
-    <section className="projects-container">
+    <section id="projetos" className="projects-container">
       <div className="projects-header">
         <h2>Meus <span>projetos</span></h2>
       </div>
@@ -58,13 +61,16 @@ export function ProjectSection() {
       <div className="projects-list">
         {projects.map((project, index) => (
           <div key={index} className="card-wrapper">
-            <motion.div 
+           <motion.div 
               className="project-card"
               style={{ backgroundColor: project.color }}
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true, amount: 0.1 }}
-              variants={cardVariants}
+              initial={{ opacity: 0, y: 100 }} 
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.2 }} 
+              transition={{ 
+                duration: 0.8, 
+                ease: [0.22, 1, 0.36, 1], 
+              }}
             >
               <div className="project-content">
                 <span className="project-index">0{index + 1}</span>
@@ -78,7 +84,7 @@ export function ProjectSection() {
                 
                 <div className="project-actions">
                   <motion.a 
-                    href="#" 
+                    href={project.projectLink} 
                     className="btn-project-red"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}

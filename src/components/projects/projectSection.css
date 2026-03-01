@@ -39,9 +39,15 @@
   align-items: center;
   min-height: 550px;
   position: relative;
-  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.05); 
   box-shadow: 0 -30px 60px rgba(0, 0, 0, 0.8);
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-font-smoothing: antialiased;
+  align-content: center;
+  transition: background-color 0.3s ease;
 }
 
 .project-card[style*="background-color: rgb(71, 6, 6)"],

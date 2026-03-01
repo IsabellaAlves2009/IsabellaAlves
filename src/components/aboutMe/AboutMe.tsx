@@ -20,10 +20,14 @@ export default function About() {
         </motion.div>
         <motion.div 
           className="about-text"
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 80 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ 
+            duration: 1, 
+            ease: [0.22, 1, 0.36, 1],
+            delay: 0.1 
+          }}
         >
           <span className="about-eyebrow">A História</span>
           <h2>Sobre <span>Mim</span></h2>

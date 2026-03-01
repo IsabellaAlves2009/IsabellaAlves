@@ -3,6 +3,8 @@
   background: #050505; /* Combinando com seu fundo atual */
   color: #fff;
   overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
 }
 
 .about-container {
@@ -56,6 +58,11 @@
   letter-spacing: 4px;
   font-size: 0.8rem;
   font-weight: 700;
+}
+
+.about-text{
+  will-change: transform, opacity; 
+  transform: translateZ(0);
 }
 
 .about-text h2 {

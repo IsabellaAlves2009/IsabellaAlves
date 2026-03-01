@@ -3,14 +3,17 @@ import "./contact.css";
 
 export function Contact() {
   return (
-    <section className="contact-container">
-      <motion.div 
+    <section id="contato" className="contact-container">
+     <motion.div 
         className="contact-content"
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 80 }} 
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
+        viewport={{ once: false, amount: 0.2 }} 
+        transition={{ 
+          duration: 1, 
+          ease: [0.22, 1, 0.36, 1] 
+        }}
+    >
         <span className="contact-subtitle">Vamos conversar?</span>
         <h2>Entrar em <span>contato</span></h2>
         <p>
@@ -27,7 +30,7 @@ export function Contact() {
             </div>
           </a>
 
-          <a href="https://wa.me/seunumerowhatsapp" target="_blank" className="contact-card-link">
+          <a href="https://wa.me/5584991736618" target="_blank" className="contact-card-link">
             <div className="contact-icon">📱</div>
             <div>
               <span className="method-label">WhatsApp</span>
@@ -35,7 +38,7 @@ export function Contact() {
             </div>
           </a>
 
-          <a href="https://linkedin.com/in/seu-perfil" target="_blank" className="contact-card-link">
+          <a href="https://www.instagram.com/itzisahalves/" target="_blank" className="contact-card-link">
             <div className="contact-icon">🔗</div>
             <div>
               <span className="method-label">Instagram</span>
