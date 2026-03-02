@@ -1,7 +1,7 @@
 import React from 'react';
 import Tilt from 'react-parallax-tilt';
 import { SiReact, SiTypescript, SiCss3, SiGit, SiHtml5, SiJavascript, SiFramer, SiTailwindcss, SiNodedotjs } from 'react-icons/si';
-import './skills3d.css';
+import './Skills3d.css';
 
 const skills = [
   { name: "React", icon: <SiReact /> },

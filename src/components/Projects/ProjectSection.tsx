@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import "./projectSection.css";
+import "./ProjectSection.css";
 import imgMovie from "../../assets/movie-explorer.png";
 import imgTodo from "../../assets/todolist.png";
 import imgPaint from "../../assets/paintJS.png";
