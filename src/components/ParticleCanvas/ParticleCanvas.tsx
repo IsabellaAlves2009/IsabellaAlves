@@ -2,10 +2,13 @@ import React, { useRef, useEffect } from 'react';
 
 export const ParticleCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    const container = containerRef.current;
+    if (!canvas || !container) return;
+
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
@@ -54,8 +57,8 @@ export const ParticleCanvas: React.FC = () => {
           const dx = particles[a].x - particles[b].x;
           const dy = particles[a].y - particles[b].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < 150) {
-            const opacity = 0.5 * (1 - distance / 150);
+          if (distance < 160) {
+            const opacity = 0.5 * (1 - distance / 160);
             context.strokeStyle = `rgba(193, 18, 31, ${opacity})`;
             context.lineWidth = 1;
             context.beginPath();
@@ -76,32 +79,30 @@ export const ParticleCanvas: React.FC = () => {
     };
 
     const animate = () => {
-      if (!ctx) return; 
+      if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
       for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].draw(ctx);
       }
-      
       connect(ctx);
       animationFrameId = requestAnimationFrame(animate);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
+      const rect = container.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
     };
 
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = container.offsetWidth;
+      canvas.height = container.offsetHeight;
       init();
     };
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('resize', resize);
-    
     resize();
     animate();
 
@@ -113,17 +114,16 @@ export const ParticleCanvas: React.FC = () => {
   }, []);
 
   return (
-    <canvas 
-      ref={canvasRef} 
+    <div 
+      ref={containerRef} 
       style={{ 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        width: '100%', 
-        height: '100%', 
-        pointerEvents: 'none', 
-        zIndex: 0 
-      }} 
-    />
+        position: 'absolute', 
+        inset: 0, 
+        zIndex: 1, 
+        pointerEvents: 'none' 
+      }}
+    >
+      <canvas ref={canvasRef} style={{ display: 'block' }} />
+    </div>
   );
 };

@@ -13,21 +13,47 @@
   color: #ffffff;
   overflow: hidden;
   position: relative;
-  z-index: 0;
+  z-index: 0; 
+}
+
+.hero-wallpaper {
+  position: absolute;
+  inset: -30%;
+  z-index: 0; 
+
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgb(240, 4, 19) 0px,
+      rgb(255, 0, 17) 1px,
+      transparent 1px,
+      transparent 26px
+    );
+  filter: blur(6px);
+  opacity: 0.15; 
+  pointer-events: none;
+
+  animation: wallpaperMove 30s linear infinite;
+  will-change: transform;
 }
 
 .hero-content {
   max-width: 720px;
   position: relative;
-  z-index: 2;
-}
-.section {
-  background: #050505;
-  padding: 10vh 10vw;
+  z-index: 2; 
 }
 
-.projects {
-  background: #0a0a0a;
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 40%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  pointer-events: none;
+  z-index: 1; 
 }
 
 .hero-eyebrow {
@@ -63,14 +89,13 @@
   gap: 1.4rem;
 }
 
-/* BOTÕES */
-
 .btn {
   padding: 14px 34px;
   border-radius: 10px;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.35s ease;
+  display: inline-block;
 }
 
 .btn.primary {
@@ -95,52 +120,9 @@
   transform: translateY(-2px);
 }
 
-.hero-wallpaper {
-  position: absolute;
-  inset: -30%;
-  z-index: 0;
-
-  background:
-    repeating-linear-gradient(
-      135deg,
-      rgb(240, 4, 19) 0px,
-      rgb(255, 0, 17) 1px,
-      transparent 1px,
-      transparent 26px
-    );
-
-  filter: blur(6px);
-  opacity: 0.85;
-  pointer-events: none;
-
-  animation: wallpaperMove 30s linear infinite;
-  will-change: transform;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at center,
-    transparent 40%,
-    rgba(0, 0, 0, 0.9) 100%
-  );
-  pointer-events: none;
-}
-
 @keyframes wallpaperMove {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-160px, -160px, 0);
-  }
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-160px, -160px, 0); }
 }
 
 @media (max-width: 900px) {
@@ -148,11 +130,7 @@
     padding: 0 8vw;
     text-align: center;
   }
-
-  .hero-content h1 {
-    font-size: 3.2rem;
-  }
-
+  .hero-content h1 { font-size: 3.2rem; }
   .hero-actions {
     justify-content: center;
     flex-wrap: wrap;
