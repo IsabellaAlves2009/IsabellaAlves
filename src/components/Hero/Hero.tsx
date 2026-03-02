@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { motion, useMotionValue, animate } from "framer-motion";
 import { useEffect } from "react";
 import { ParticleCanvas } from "../ParticleCanvas/ParticleCanvas"; 
 import "./hero.css";
@@ -6,8 +6,6 @@ import "./hero.css";
 export function Hero() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const x = useTransform(mouseX, [-0.5, 0.5], [20, -20]);
-  const y = useTransform(mouseY, [-0.5, 0.5], [20, -20]);
 
   useEffect(() => {
     const controlsX = animate(mouseX, [0, 0.2, 0, -0.2, 0], { duration: 20, repeat: Infinity, ease: "easeInOut" });
