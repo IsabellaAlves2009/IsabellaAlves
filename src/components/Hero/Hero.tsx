@@ -37,13 +37,16 @@ export function Hero() {
       onMouseMove={handleMouseMove} 
       style={{ position: 'relative', overflow: 'hidden' }}
     >
-      <div className="hero-wallpaper" />
+      <div className="hero-wallpaper" style={{ zIndex: 0 }} />
+      
       <ParticleCanvas />
+
       <motion.div
         className="hero-content"
         initial={{ opacity: 0, y: 70 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.1, ease: "easeOut" }}
+        style={{ position: 'relative', zIndex: 10 }}
       >
         <span className="hero-eyebrow">Front-end Developer</span>
         <h1> 
@@ -54,7 +57,7 @@ export function Hero() {
           com foco em experiência do usuário e estética profissional.
         </p>
         
-        <div className="hero-actions">
+        <div className="hero-actions" style={{ position: 'relative', zIndex: 20 }}>
           <motion.a 
             href="#projects" 
             className="btn primary" 

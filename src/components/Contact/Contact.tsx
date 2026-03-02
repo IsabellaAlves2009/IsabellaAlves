@@ -3,7 +3,7 @@ import "./contact.css";
 
 export function Contact() {
   return (
-    <section id="contato" className="contact-container">
+    <section id="contact" className="contact-container">
      <motion.div 
         className="contact-content"
         initial={{ opacity: 0, y: 80 }} 

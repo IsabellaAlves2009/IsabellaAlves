@@ -53,7 +53,7 @@ const cardVariants: Variants = {
 
 export function ProjectSection() {
   return (
-    <section id="projetos" className="projects-container">
+    <section id="projects" className="projects-container">
       <div className="projects-header">
         <h2>Meus <span>projetos</span></h2>
       </div>
