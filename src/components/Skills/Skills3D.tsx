@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Tilt from 'react-parallax-tilt';
 import { SiReact, SiTypescript, SiCss3, SiGit, SiHtml5, SiJavascript, SiFramer, SiTailwindcss, SiNodedotjs } from 'react-icons/si';
 import './Skills3d.css';
