@@ -26,12 +26,11 @@ export const ParticleCanvas: React.FC = () => {
         this.density = (Math.random() * 30) + 1;
       }
 
-      draw() {
-        if (!ctx) return;
-        ctx.fillStyle = '#c1121f';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
+      draw(context: CanvasRenderingContext2D) {
+        context.fillStyle = '#c1121f';
+        context.beginPath();
+        context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        context.fill();
       }
 
       update() {
@@ -49,20 +48,20 @@ export const ParticleCanvas: React.FC = () => {
       }
     }
 
-    function connect() {
-      if (!ctx) return;
+    function connect(context: CanvasRenderingContext2D) {
       for (let a = 0; a < particles.length; a++) {
-        for (let b = a; b < particles.length; b++) {
+        for (let b = a + 1; b < particles.length; b++) {
           const dx = particles[a].x - particles[b].x;
           const dy = particles[a].y - particles[b].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < 100) {
-            ctx.strokeStyle = `rgba(193, 18, 31, ${0.2 * (1 - distance / 100)})`;
-            ctx.lineWidth = 0.8;
-            ctx.beginPath();
-            ctx.moveTo(particles[a].x, particles[a].y);
-            ctx.lineTo(particles[b].x, particles[b].y);
-            ctx.stroke();
+          if (distance < 150) {
+            const opacity = 0.5 * (1 - distance / 150);
+            context.strokeStyle = `rgba(193, 18, 31, ${opacity})`;
+            context.lineWidth = 1;
+            context.beginPath();
+            context.moveTo(particles[a].x, particles[a].y);
+            context.lineTo(particles[b].x, particles[b].y);
+            context.stroke();
           }
         }
       }
@@ -70,17 +69,28 @@ export const ParticleCanvas: React.FC = () => {
 
     const init = () => {
       particles = [];
-      const quantity = (canvas.width * canvas.height) / 9000;
+      const quantity = (canvas.width * canvas.height) / 8000;
       for (let i = 0; i < quantity; i++) {
         particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
       }
     };
 
     const animate = () => {
+      if (!ctx) return; 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => { p.update(); p.draw(); });
-      connect();
+      
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw(ctx);
+      }
+      
+      connect(ctx);
       animationFrameId = requestAnimationFrame(animate);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
     };
 
     const resize = () => {
@@ -89,23 +99,30 @@ export const ParticleCanvas: React.FC = () => {
       init();
     };
 
-    window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
+    window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('resize', resize);
-    resize(); animate();
-    return () => { window.removeEventListener('resize', resize); cancelAnimationFrame(animationFrameId); };
+    
+    resize();
+    animate();
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
   return (
     <canvas 
       ref={canvasRef} 
       style={{ 
-        position: 'absolute', 
+        position: 'fixed', 
         top: 0, 
         left: 0, 
         width: '100%', 
         height: '100%', 
         pointerEvents: 'none', 
-        zIndex: 1
+        zIndex: 0 
       }} 
     />
   );
