@@ -4,6 +4,7 @@ import "./ProjectSection.css";
 import imgMovie from "../../assets/movie-explorer.png";
 import imgTodo from "../../assets/todolist.png";
 import imgPaint from "../../assets/paintJS.png";
+import imgSmash from "../../assets/smashburguer.png";
 
 const projects = [
   {
@@ -33,23 +34,16 @@ const projects = [
     projectLink: "https://isabellaalves2009.github.io/Paint_JS/",
     repository: "https://github.com/IsabellaAlves2009/Paint_JS.git"
   },
-];
-
-const cardVariants: Variants = {
-  offscreen: {
-    y: 100,
-    opacity: 0
-  },
-  onscreen: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      bounce: 0.3,
-      duration: 0.8
-    }
+  {
+    title: "Smash Burguer",
+    tags: ["Html", "Javascript","Tailwind", "Node.js"],
+    description: "Um site de restaurante moderno e responsivo, com foco em uma experiência de usuário fluida e visualmente atraente.",
+    color: "#470606", 
+    image: imgSmash,
+    projectLink: "https://smashburguer.vercel.app/",
+    repository: "https://github.com/IsabellaAlves2009/smashBurguer.git"
   }
-};
+];
 
 export function ProjectSection() {
   return (

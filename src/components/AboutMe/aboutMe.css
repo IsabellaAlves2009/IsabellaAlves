@@ -1,6 +1,6 @@
 .about-section {
   padding: 120px 10vw;
-  background: #050505; /* Combinando com seu fundo atual */
+  background: #050505; 
   color: #fff;
   overflow: hidden;
   overflow-x: hidden;
@@ -16,7 +16,6 @@
   align-items: center;
 }
 
-/* Efeito da Imagem */
 .about-image {
   position: relative;
 }
@@ -32,7 +31,7 @@
 .image-wrapper img {
   width: 100%;
   display: block;
-  filter: grayscale(20%); /* Dá um ar mais editorial/sério */
+  filter: grayscale(20%); 
   transition: filter 0.3s ease;
 }
 
@@ -46,12 +45,11 @@
   left: -20px;
   width: 100%;
   height: 100%;
-  border: 2px solid #c1121f; /* Seu vermelho institucional */
+  border: 2px solid #c1121f; 
   border-radius: 20px;
   z-index: 1;
 }
 
-/* Conteúdo de Texto */
 .about-eyebrow {
   color: #c1121f;
   text-transform: uppercase;
@@ -81,7 +79,6 @@
   font-size: 1.1rem;
 }
 
-/* Mini Estatísticas */
 .about-stats {
   display: flex;
   gap: 40px;
@@ -100,7 +97,6 @@
   margin-top: 5px;
 }
 
-/* Responsividade */
 @media (max-width: 900px) {
   .about-container {
     grid-template-columns: 1fr;
