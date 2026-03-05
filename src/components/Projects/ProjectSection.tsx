@@ -18,7 +18,7 @@ const projects = [
   },
   {
     title: "To do list",
-    tags: ["React", "TypeScript", "Tailwind"],
+    tags: ["React", "TypeScript", "CSS"],
     description: "Aplicação de produtividade minimalista com foco em alta performance e organização de tarefas de forma intuitiva.",
     color: "#470606", 
     image: imgTodo,
