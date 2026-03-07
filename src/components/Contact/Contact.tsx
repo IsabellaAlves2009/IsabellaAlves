@@ -22,7 +22,7 @@ export function Contact() {
         </p>
 
         <div className="contact-methods">
-          <a href="mailto:seuemail@exemplo.com" className="contact-card-link">
+          <a href="mailto:bella.s.alves2005@gmail.com" className="contact-card-link">
             <div className="contact-icon">✉️</div>
             <div>
               <span className="method-label">Email</span>
