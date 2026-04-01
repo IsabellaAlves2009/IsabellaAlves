@@ -45,7 +45,7 @@ export function Contact() {
               <span className="method-value">@itzisahalves</span>
             </div>
           </a>
-          <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile" target="_blank" className="contact-card-link">
+          <a href="https://www.linkedin.com/in/itzisahalves/" target="_blank" className="contact-card-link">
             <div className="contact-icon">💼</div>
             <div>
               <span className="method-label">Linkedin</span>
