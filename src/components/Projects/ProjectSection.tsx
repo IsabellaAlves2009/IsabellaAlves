@@ -4,7 +4,9 @@ import "./ProjectSection.css";
 import imgMovie from "../../assets/movie-explorer.png";
 import imgTodo from "../../assets/todolist.png";
 import imgPaint from "../../assets/paintJS.png";
+import imgHealth from "../../assets/healthprime.png";
 import imgSmash from "../../assets/smashburguer.png";
+import { img } from "framer-motion/client";
 
 const projects = [
   {
@@ -26,15 +28,6 @@ const projects = [
     repository: "https://github.com/IsabellaAlves2009/to-do-list-TS.git"
   },
   {
-    title: "Paint Color",
-    tags: ["Javascript", "HTML", "CSS"],
-    description: "Uma ferramenta interativa para designers testarem paletas de cores e composições visuais em tempo real no navegador.",
-    color: "#0a0a0a", 
-    image: imgPaint,
-    projectLink: "https://isabellaalves2009.github.io/Paint_JS/",
-    repository: "https://github.com/IsabellaAlves2009/Paint_JS.git"
-  },
-  {
     title: "Smash Burguer",
     tags: ["Html", "Javascript","Tailwind", "Node.js"],
     description: "Um site de restaurante moderno e responsivo, com foco em uma experiência de usuário fluida e visualmente atraente.",
@@ -42,6 +35,15 @@ const projects = [
     image: imgSmash,
     projectLink: "https://smashburguer.vercel.app/",
     repository: "https://github.com/IsabellaAlves2009/smashBurguer.git"
+  },
+  {
+    title: "Health Prime landing page",
+    tags: ["HTML", "Tailwind"],
+    description: "Uma landing page para um aplicativo de saúde, projetada para ser visualmente atraente e otimizada para conversão de usuários.", 
+    color: "#0a0a0a",
+    image: imgHealth,
+    projectLink: "https://healthprimeweb.vercel.app/",
+    repository: "https://github.com/IsabellaAlves2009/healthprime.git"
   }
 ];
 
