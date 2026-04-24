@@ -1,63 +1,64 @@
 import { motion } from "framer-motion";
-import type { Variants } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import "./ProjectSection.css";
 import imgMovie from "../../assets/movie-explorer.png";
 import imgTodo from "../../assets/todolist.png";
-import imgPaint from "../../assets/paintJS.png";
 import imgHealth from "../../assets/healthprime.png";
 import imgSmash from "../../assets/smashburguer.png";
-import { img } from "framer-motion/client";
-
-const projects = [
-  {
-    title: "Movie Explorer",
-    tags: ["React", "Typescript", "Framer Motion"],
-    description: "Uma plataforma dinâmica para explorar o mundo do cinema, com filtros inteligentes e uma interface focada na experiência do usuário.",
-    color: "#0a0a0a", 
-    image: imgMovie, 
-    projectLink: "https://movie-explorer-nu-sand.vercel.app/",
-    repository: "https://github.com/IsabellaAlves2009/movie-explorer.git"
-  },
-  {
-    title: "To do list",
-    tags: ["React", "TypeScript", "CSS"],
-    description: "Aplicação de produtividade minimalista com foco em alta performance e organização de tarefas de forma intuitiva.",
-    color: "#470606", 
-    image: imgTodo,
-    projectLink: "https://to-do-list-hazel-omega-31.vercel.app/",
-    repository: "https://github.com/IsabellaAlves2009/to-do-list-TS.git"
-  },
-  {
-    title: "Smash Burguer",
-    tags: ["Html", "Javascript","Tailwind", "Node.js"],
-    description: "Um site de restaurante moderno e responsivo, com foco em uma experiência de usuário fluida e visualmente atraente.",
-    color: "#470606", 
-    image: imgSmash,
-    projectLink: "https://smashburguer.vercel.app/",
-    repository: "https://github.com/IsabellaAlves2009/smashBurguer.git"
-  },
-  {
-    title: "Health Prime landing page",
-    tags: ["HTML", "Tailwind"],
-    description: "Uma landing page para um aplicativo de saúde, projetada para ser visualmente atraente e otimizada para conversão de usuários.", 
-    color: "#0a0a0a",
-    image: imgHealth,
-    projectLink: "https://healthprimeweb.vercel.app/",
-    repository: "https://github.com/IsabellaAlves2009/healthprime.git"
-  }
-];
 
 export function ProjectSection() {
+  const { t } = useTranslation();
+
+  // Definimos o array dentro do componente para que ele reaja à mudança de idioma
+  const projects = [
+    {
+      title: "Movie Explorer",
+      tags: ["React", "Typescript", "Framer Motion"],
+      descriptionKey: "projects.movieExplorer", // Usamos a chave do JSON
+      color: "#0a0a0a", 
+      image: imgMovie, 
+      projectLink: "https://movie-explorer-nu-sand.vercel.app/",
+      repository: "https://github.com/IsabellaAlves2009/movie-explorer.git"
+    },
+    {
+      title: "To do list",
+      tags: ["React", "TypeScript", "CSS"],
+      descriptionKey: "projects.todoList",
+      color: "#470606", 
+      image: imgTodo,
+      projectLink: "https://to-do-list-hazel-omega-31.vercel.app/",
+      repository: "https://github.com/IsabellaAlves2009/to-do-list-TS.git"
+    },
+    {
+      title: "Smash Burguer",
+      tags: ["Html", "Javascript","Tailwind", "Node.js"],
+      descriptionKey: "projects.smashBurguer",
+      color: "#470606", 
+      image: imgSmash,
+      projectLink: "https://smashburguer.vercel.app/",
+      repository: "https://github.com/IsabellaAlves2009/smashBurguer.git"
+    },
+    {
+      title: "Health Prime landing page",
+      tags: ["HTML", "Tailwind"],
+      descriptionKey: "projects.healthPrime", 
+      color: "#0a0a0a",
+      image: imgHealth,
+      projectLink: "https://healthprimeweb.vercel.app/",
+      repository: "https://github.com/IsabellaAlves2009/healthprime.git"
+    }
+  ];
+
   return (
     <section id="projects" className="projects-container">
       <div className="projects-header">
-        <h2>Meus <span>projetos</span></h2>
+        <h2>{t('projects.titlePart1')} <span>{t('projects.titlePart2')}</span></h2>
       </div>
 
       <div className="projects-list">
         {projects.map((project, index) => (
           <div key={index} className="card-wrapper">
-           <motion.div 
+            <motion.div 
               className="project-card"
               style={{ backgroundColor: project.color }}
               initial={{ opacity: 0, y: 100 }} 
@@ -76,20 +77,24 @@ export function ProjectSection() {
                     <span key={tag}>{tag}</span>
                   ))}
                 </div>
-                <p>{project.description}</p>
+                <p>{t(project.descriptionKey)}</p>
                 
                 <div className="project-actions">
                   <motion.a 
                     href={project.projectLink} 
+                    target="_blank"
+                    rel="noreferrer"
                     className="btn-project-red"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Ver Projeto
+                    {t('projects.viewProject')}
                   </motion.a>
                   
                   <motion.a 
                     href={project.repository} 
+                    target="_blank"
+                    rel="noreferrer"
                     className="btn-repository" 
                     title="GitHub"
                     whileHover={{ scale: 1.05 }}

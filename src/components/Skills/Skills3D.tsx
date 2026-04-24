@@ -1,5 +1,5 @@
-
 import Tilt from 'react-parallax-tilt';
+import { useTranslation } from "react-i18next";
 import { SiReact, SiTypescript, SiCss3, SiGit, SiHtml5, SiJavascript, SiFramer, SiTailwindcss, SiNodedotjs } from 'react-icons/si';
 import './skills3D.css';
 
@@ -16,11 +16,13 @@ const skills = [
 ];
 
 export function Skills3D() {
+  const { t } = useTranslation();
+
   return (
     <section className="skills-section">
       <div className="skills-header">
-        <span className="about-eyebrow">Expertise</span>
-        <h2>Minha <span>Stack</span></h2>
+        <span className="about-eyebrow">{t('skills.eyebrow')}</span>
+        <h2>{t('skills.titlePart1')} <span>{t('skills.titlePart2')}</span></h2>
       </div>
       <div className="skills-grid-clean">
         {skills.map((skill, index) => (

@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next"; // Importando o hook
 import "./aboutMe.css";
 import profileImg from "../../assets/profileImg.png"; 
 
 export default function About() {
+  const { t } = useTranslation(); // Inicializando a tradução
+
   return (
     <section className="about-section" id="sobre">
       <div className="about-container">
@@ -18,6 +21,7 @@ export default function About() {
             <div className="image-border"></div>
           </div>
         </motion.div>
+        
         <motion.div 
           className="about-text"
           initial={{ opacity: 0, x: 80 }}
@@ -29,32 +33,27 @@ export default function About() {
             delay: 0.1 
           }}
         >
-          <span className="about-eyebrow">A História</span>
-          <h2>Sobre <span>Mim</span></h2>
+          <span className="about-eyebrow">{t('about.eyebrow')}</span>
+          <h2>{t('about.titlePart1')} <span>{t('about.titlePart2')}</span></h2>
           <p>
-            Olá! Sou a Isabella, uma desenvolvedora Front-end apaixonada por transformar 
-            ideias complexas em interfaces digitais elegantes e intuitivas. 
-            Meu foco é criar experiências que não apenas funcionem bem, mas que também 
-            contem uma história através do design.
+            {t('about.text')}
           </p>
           <p>
-            Com domínio em <strong>React, TypeScript e Ecossistema Motion</strong>, 
-            estou sempre em busca de novos desafios que me permitam elevar o nível 
-            da web moderna.
+            {t('about.techText')} <strong>React, TypeScript & Motion Ecosystem</strong>, 
+            {t('about.challengeText')}
           </p>
 
           <div className="about-stats">
             <div className="stat-item">
               <span>4+</span>
-              <p>Anos de Exp.</p>
+              <p>{t('about.experience')}</p>
             </div>
             <div className="stat-item">
               <span>40+</span>
-              <p>Projetos</p>
+              <p>{t('about.projectsCount')}</p>
             </div>
           </div>
         </motion.div>
-
       </div>
     </section>
   );

@@ -1,9 +1,11 @@
 import { motion, useMotionValue, animate } from "framer-motion";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { ParticleCanvas } from "../ParticleCanvas/ParticleCanvas"; 
 import "./hero.css";
 
 export function Hero() {
+  const { t } = useTranslation();
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -38,7 +40,6 @@ export function Hero() {
       style={{ position: 'relative', overflow: 'hidden' }}
     >
       <div className="hero-wallpaper" style={{ zIndex: 0 }} />
-      
       <ParticleCanvas />
 
       <motion.div
@@ -48,15 +49,14 @@ export function Hero() {
         transition={{ duration: 1.1, ease: "easeOut" }}
         style={{ position: 'relative', zIndex: 10 }}
       >
-        <span className="hero-eyebrow">Front-end Developer</span>
+        <span className="hero-eyebrow">{t('hero.role')}</span>
         <h1> 
           Isabella <span>Alves</span> 
         </h1>
         <p>
-          Desenvolvo interfaces modernas, performáticas e bem pensadas,
-          com foco em experiência do usuário e estética profissional.
-        </p>
-        
+          {t('hero.description')}
+        </p>    
+
         <div className="hero-actions" style={{ position: 'relative', zIndex: 20 }}>
           <motion.a 
             href="#projects" 
@@ -64,7 +64,7 @@ export function Hero() {
             whileHover={{ scale: 1.05 }} 
             whileTap={{ scale: 0.95 }}
           >
-            Ver projetos
+            {t('hero.buttonProjects')}
           </motion.a>
           <motion.a 
             href="#contact" 
@@ -72,7 +72,7 @@ export function Hero() {
             whileHover={{ scale: 1.05 }} 
             whileTap={{ scale: 0.95 }}
           >
-            Entrar em contato
+            {t('hero.buttonContact')}
           </motion.a>
         </div>
       </motion.div>

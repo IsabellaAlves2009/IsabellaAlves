@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "title": "Isabella Alves",
+    "role": "Front-end Developer",
+    "description": "I develop modern, high-performance, and well-thought-out interfaces, focusing on user experience and professional aesthetics.",
+    "buttonProjects": "View projects",
+    "buttonContact": "Get in touch"
+  },
+  "about": {
+    "eyebrow": "The Story",
+    "titlePart1": "About",
+    "titlePart2": "Me",
+    "text": "Hi! I'm Isabella, a Front-end developer passionate about transforming complex ideas into elegant and intuitive digital interfaces. My focus is on creating experiences that not only work well but also tell a story through design.",
+    "techText": "Expertise in",
+    "challengeText": "I am always looking for new challenges that allow me to elevate the level of the modern web.",
+    "experience": "Years Exp.",
+    "projectsCount": "Projects"
+    },
+   "skills": {
+    "eyebrow": "Expertise",
+    "titlePart1": "My",
+    "titlePart2": "Stack"
+    },
+  "projects": {
+    "titlePart1": "My",
+    "titlePart2": "Projects",
+    "movieExplorer": "A dynamic platform to explore the world of cinema, featuring smart filters and a user-centric interface.",
+    "todoList": "Minimalist productivity application focused on high performance and intuitive task organization.",
+    "smashBurguer": "A modern and responsive restaurant website, focusing on a fluid and visually appealing user experience.",
+    "healthPrime": "A landing page for a health app, designed to be visually appealing and optimized for user conversion.",
+    "viewProject": "View Project"
+  },
+  "contact": {
+    "title": "Let's talk?",
+    "header1": "Get in",
+    "header2": "touch",
+    "description": "I'm available for new projects and interesting opportunities. If you have an idea or just want to say hi, send me a message!",
+    "emailLabel": "Email",
+    "whatsappLabel": "WhatsApp",
+    "instagramLabel": "Instagram",
+    "linkedinLabel": "Linkedin"
+  }
+}

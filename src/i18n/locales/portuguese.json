@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "title": "Isabella Alves",
+    "role": "Desenvolvedora Front-end",
+    "description": "Desenvolvo interfaces modernas, performáticas e bem pensadas, com foco em experiência do usuário e estética profissional.",
+    "buttonProjects": "Ver projetos",
+    "buttonContact": "Entrar em contato"
+  },
+  "about": {
+    "eyebrow": "A História",
+    "titlePart1": "Sobre",
+    "titlePart2": "Mim",
+    "text": "Olá! Sou a Isabella, uma desenvolvedora Front-end apaixonada por transformar ideias complexas em interfaces digitais elegantes e intuitivas. Meu foco é criar experiências que não apenas funcionem bem, mas que também contem uma história através do design.",
+    "techText": "Com domínio em",
+    "challengeText": "estou sempre em busca de novos desafios que me permitam elevar o nível da web moderna.",
+    "experience": "Anos de Exp.",
+    "projectsCount": "Projetos"
+    },
+    "skills": {
+    "eyebrow": "Especialidades",
+    "titlePart1": "Minhas",
+    "titlePart2": "Stacks"
+    },
+  "projects": {
+    "titlePart1": "Meus",
+    "titlePart2": "Projetos",
+    "movieExplorer": "Uma plataforma dinâmica para explorar o mundo do cinema, com filtros inteligentes e uma interface focada na experiência do usuário.",
+    "todoList": "Aplicação de produtividade minimalista com foco em alta performance e organização de tarefas de forma intuitiva.",
+    "smashBurguer": "Um site de restaurante moderno e responsivo, com foco em uma experiência de usuário fluida e visualmente atraente.",
+    "healthPrime": "Uma landing page para um aplicativo de saúde, projetada para ser visualmente atraente e otimizada para conversão de usuários.",
+    "viewProject": "Ver Projeto"
+  },
+  "contact": {
+    "title": "Vamos conversar?",
+    "header1": "Entrar em",
+    "header2": "contato",
+    "description": "Estou disponível para novos projetos e oportunidades interessantes. Se você tem uma ideia ou apenas quer dar um oi, mande uma mensagem!",
+    "emailLabel": "Email",
+    "whatsappLabel": "WhatsApp",
+    "instagramLabel": "Instagram",
+    "linkedinLabel": "Linkedin"
+}
+}
