@@ -1,73 +1,28 @@
-# React + TypeScript + Vite
+# 💻 Isabella Alves | Front-end Developer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="./src/assets/imgPortfolio.png" alt="Portfolio Preview" style="border-radius: 20px; width: 100%;">
+</p>
 
-Currently, two official plugins are available:
+## ✍️ Sobre o Projeto
+Este portfólio foi desenvolvido para ser uma experiência digital imersiva, unindo design sofisticado e performance técnica. O objetivo principal é demonstrar o domínio de tecnologias modernas de Front-end, com foco em interfaces fluidas, responsivas e acessíveis.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Funcionalidades de Destaque
+* **🌍 Global Reach (i18n):** Suporte nativo a multi-idioma (PT-BR/EN) via `i18next`, permitindo a troca dinâmica de conteúdo sem reload.
+* **🎬 Interactive UI:** Navegação de projetos em estilo "Slide Code" utilizando `Swiper.js`, com efeitos de zoom e overlays dinâmicos.
+* **✨ Motion Design:** Animações fluidas integradas com `Framer Motion` e interações 3D com `react-parallax-tilt`.
+* **📱 Mobile First:** Layout totalmente responsivo e otimizado para todos os tamanhos de tela.
 
-## React Compiler
+## 🛠️ Tech Stack
+* **Core:** React.js + TypeScript + Vite
+* **Styling:** CSS3 (Custom Properties) & Tailwind CSS
+* **Animations:** Framer Motion & Parallax Tilt
+* **Experience:** Swiper.js & i18next (Internationalization)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🔧 Como rodar o projeto localmente
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clone o repositório:
+   ```bash
+   git clone [https://github.com/IsabellaAlves2009/IsabellaAlves.git](https://github.com/IsabellaAlves2009/IsabellaAlves.git)
