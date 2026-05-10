@@ -25,7 +25,7 @@
     "titlePart1": "Meus",
     "titlePart2": "Projetos",
     "movieExplorer": "Uma plataforma dinâmica para explorar o mundo do cinema, com filtros inteligentes e uma interface focada na experiência do usuário.",
-    "todoList": "Aplicação de produtividade minimalista com foco em alta performance e organização de tarefas de forma intuitiva.",
+    "weatherApp": "Dashboard meteorológico em React com dados em tempo real e design responsivo.",
     "smashBurguer": "Um site de restaurante moderno e responsivo, com foco em uma experiência de usuário fluida e visualmente atraente.",
     "healthPrime": "Uma landing page para um aplicativo de saúde, projetada para ser visualmente atraente e otimizada para conversão de usuários.",
     "viewProject": "Ver Projeto"

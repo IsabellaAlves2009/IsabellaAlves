@@ -9,9 +9,10 @@ import "swiper/css/navigation";
 import "./ProjectSection.css";
 
 import imgMovie from "../../assets/movie-explorer.png";
-import imgTodo from "../../assets/todolist.png";
 import imgHealth from "../../assets/healthprime.png";
 import imgSmash from "../../assets/smashburguer.png";
+import imgWeather from "../../assets/weatherapp.png";
+import imgArtSucre from "../../assets/artsucre.png";
 
 export function ProjectSection() {
   const { t } = useTranslation();
@@ -26,16 +27,16 @@ export function ProjectSection() {
       repository: "https://github.com/IsabellaAlves2009/movie-explorer.git"
     },
     {
-      title: "To do list",
-      tags: ["React", "TypeScript", "CSS"],
-      descriptionKey: "projects.todoList",
-      image: imgTodo,
-      projectLink: "https://to-do-list-hazel-omega-31.vercel.app/",
-      repository: "https://github.com/IsabellaAlves2009/to-do-list-TS.git"
+      title: "Weather Dashboard",
+      tags: ["React", "Javascript", "TailwindCSS"],
+      descriptionKey: "projects.weatherApp",
+      image: imgWeather,
+      projectLink: "https://weatherappdashboard.vercel.app/",
+      repository: "https://github.com/IsabellaAlves2009/weatherapp.git"
     },
     {
       title: "Smash Burguer",
-      tags: ["Html", "Javascript", "Tailwind", "Node.js"],
+      tags: ["Html", "Javascript", "TailwindCSS", "Node.js"],
       descriptionKey: "projects.smashBurguer",
       image: imgSmash,
       projectLink: "https://smashburguer.vercel.app/",
@@ -43,11 +44,19 @@ export function ProjectSection() {
     },
     {
       title: "Health Prime landing page",
-      tags: ["HTML", "Tailwind"],
+      tags: ["HTML", "TailwindCSS"],
       descriptionKey: "projects.healthPrime",
       image: imgHealth,
       projectLink: "https://healthprimeweb.vercel.app/",
       repository: "https://github.com/IsabellaAlves2009/healthprime.git"
+    },
+    {
+      title: "L'Art Sucré Cake",
+      tags: ["HTML", "TailwindCSS"],
+      descriptionKey: "projects.artSucreCake",
+      image: imgArtSucre,
+      projectLink: "https://artsucrecake.vercel.app/",
+      repository: "https://github.com/IsabellaAlves2009/artsucrecake.git"
     }
   ];
 
