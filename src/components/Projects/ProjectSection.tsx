@@ -1,118 +1,199 @@
-import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { useLang } from "../../lib/i18n";
+import { SectionHeader } from "../AboutMe/AboutMe";
 
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "./ProjectSection.css";
-
-import imgMovie from "../../assets/movie-explorer.png";
-import imgHealth from "../../assets/healthprime.png";
-import imgSmash from "../../assets/smashburguer.png";
-import imgWeather from "../../assets/weatherapp.png";
-import imgArtSucre from "../../assets/artsucre.png";
+const projects = [
+  {
+    n: "01",
+    name: "Movie Explorer",
+    desc: {
+      pt: "Plataforma dinâmica para explorar o universo do cinema, com filtros inteligentes e interface centrada no usuário.",
+      en: "A dynamic platform to explore the world of cinema, featuring smart filters and a user-centric interface.",
+    },
+    tags: ["React", "TypeScript", "Framer Motion"],
+    url: "https://movie-explorer-nu-sand.vercel.app/",
+  },
+  {
+    n: "02",
+    name: "Weather Dashboard",
+    desc: {
+      pt: "Dashboard de clima moderno em React com dados em tempo real e design totalmente responsivo.",
+      en: "Modern React weather dashboard with real-time data and responsive design.",
+    },
+    tags: ["React", "JavaScript", "Tailwind", "CSS"],
+    url: "https://weatherappdashboard.vercel.app/",
+  },
+  {
+    n: "03",
+    name: "Smash Burguer",
+    desc: {
+      pt: "Site de restaurante moderno e responsivo com foco em experiência visual fluida.",
+      en: "A modern and responsive restaurant website, focusing on a fluid and visually appealing user experience.",
+    },
+    tags: ["HTML", "JavaScript", "Tailwind", "CSS", "Node.js"],
+    url: "https://smashburguer.vercel.app/",
+  },
+  {
+    n: "04",
+    name: "Health Prime",
+    desc: {
+      pt: "Landing page para um app de saúde, projetada para ser visualmente atraente e otimizada para conversão.",
+      en: "A landing page for a health app, designed to be visually appealing and optimized for user conversion.",
+    },
+    tags: ["HTML", "Tailwind", "CSS"],
+    url: "https://healthprimeweb.vercel.app/",
+  },
+  {
+    n: "05",
+    name: "L'Art Sucré Cake",
+    desc: {
+      pt: "Site elegante para uma confeitaria artesanal, com identidade visual delicada e refinada.",
+      en: "An elegant website for an artisanal patisserie, with a delicate and refined visual identity.",
+    },
+    tags: ["HTML", "Tailwind", "CSS"],
+    url: "https://artsucrecake.vercel.app/",
+  },
+];
 
 export function ProjectSection() {
-  const { t } = useTranslation();
+  const { t, lang } = useLang();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
-  const projects = [
-    {
-      title: "Movie Explorer",
-      tags: ["React", "Typescript", "Framer Motion"],
-      descriptionKey: "projects.movieExplorer",
-      image: imgMovie,
-      projectLink: "https://movie-explorer-nu-sand.vercel.app/",
-      repository: "https://github.com/IsabellaAlves2009/movie-explorer.git"
+  const prevSlide = () => {
+    setDirection(-1);
+    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setDirection(1);
+    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+  };
+
+  const goToSlide = (index: number) => {
+    setDirection(index > currentIndex ? 1 : -1);
+    setCurrentIndex(index);
+  };
+
+  const currentProject = projects[currentIndex];
+
+  const variants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? "100%" : "-100%",
+      opacity: 0,
+    }),
+    center: {
+      x: "0%",
+      opacity: 1,
     },
-    {
-      title: "Weather Dashboard",
-      tags: ["React", "Javascript", "TailwindCSS"],
-      descriptionKey: "projects.weatherApp",
-      image: imgWeather,
-      projectLink: "https://weatherappdashboard.vercel.app/",
-      repository: "https://github.com/IsabellaAlves2009/weatherapp.git"
-    },
-    {
-      title: "Smash Burguer",
-      tags: ["Html", "Javascript", "TailwindCSS", "Node.js"],
-      descriptionKey: "projects.smashBurguer",
-      image: imgSmash,
-      projectLink: "https://smashburguer.vercel.app/",
-      repository: "https://github.com/IsabellaAlves2009/smashBurguer.git"
-    },
-    {
-      title: "Health Prime landing page",
-      tags: ["HTML", "TailwindCSS"],
-      descriptionKey: "projects.healthPrime",
-      image: imgHealth,
-      projectLink: "https://healthprimeweb.vercel.app/",
-      repository: "https://github.com/IsabellaAlves2009/healthprime.git"
-    },
-    {
-      title: "L'Art Sucré Cake",
-      tags: ["HTML", "TailwindCSS"],
-      descriptionKey: "projects.artSucreCake",
-      image: imgArtSucre,
-      projectLink: "https://artsucrecake.vercel.app/",
-      repository: "https://github.com/IsabellaAlves2009/artsucrecake.git"
-    }
-  ];
+    exit: (dir: number) => ({
+      x: dir < 0 ? "100%" : "-100%",
+      opacity: 0,
+  }),
+  };
 
   return (
-    <section id="projects" className="projects-container">
-      <div className="projects-header">
-        <h2>{t('projects.titlePart1')} <span>{t('projects.titlePart2')}</span></h2>
-      </div>
-
-      <Swiper
-        modules={[Pagination, Navigation, Autoplay]}
-        spaceBetween={20}
-        slidesPerView={1}
-        centeredSlides={true}
-        loop={true}
-        autoplay={{ delay: 4000, disableOnInteraction: false }}
-        pagination={{ clickable: true }}
-        navigation={true}
-        breakpoints={{
-          768: { slidesPerView: 1.5 },
-          1200: { slidesPerView: 2.2 },
-        }}
-        className="mySwiper"
-      >
-        {projects.map((project, index) => (
-          <SwiperSlide key={index}>
-            <div className="project-card-full">
-              <div 
-                className="card-bg-image" 
-                style={{ backgroundImage: `url(${project.image})` }} 
-              />
-              <div className="card-overlay" />
-              
-              <div className="card-content-floating">
-                <span className="project-number">0{index + 1}</span>
-                <div className="tags-row">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="tag-pill">{tag}</span>
+    <section id="projects" className="relative scroll-mt-24 py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <SectionHeader
+            eyebrow={t("projectsEyebrow")}
+            title={t("projectsTitle")}
+            index="03"
+          />
+        </motion.div>
+        <div className="relative mt-14 max-w-3xl mx-auto">
+          <div className="relative overflow-hidden w-full">
+            <AnimatePresence initial={false} custom={direction} mode="popLayout">
+              <motion.a
+                key={currentProject.n}
+                href={currentProject.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.2 },
+                }}
+                className="group relative flex flex-col overflow-hidden rounded-3xl border border-white/5 bg-surface/40 p-7 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:bg-surface sm:p-9 w-full"
+                style={{ boxShadow: "var(--shadow-card)" }}
+              >
+                <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/15 blur-3xl opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/0 to-transparent transition-all duration-700 group-hover:via-primary/60" />
+                <div className="relative flex items-center justify-between">
+                  <span className="font-mono text-xs tracking-widest text-muted-foreground">
+                    / {currentProject.n}
+                  </span>
+                  <span className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.02] transition-all duration-500 group-hover:border-primary/40 group-hover:bg-primary group-hover:rotate-45">
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:text-primary-foreground" />
+                  </span>
+                </div>
+                <h3 className="relative mt-8 font-display text-3xl font-bold tracking-tight sm:text-4xl">
+                  {currentProject.name}
+                </h3>
+                <p className="relative mt-4 max-w-md text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  {currentProject.desc[lang]}
+                </p>
+                <div className="relative mt-7 flex flex-wrap gap-2">
+                  {currentProject.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-white/10 bg-white/[0.02] px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground transition-colors group-hover:border-primary/30 group-hover:text-foreground"
+                    >
+                      {tag}
+                    </span>
                   ))}
                 </div>
-                <h3>{project.title}</h3>
-                <p>{t(project.descriptionKey)}</p>
 
-                <div className="card-actions">
-                  <a href={project.projectLink} target="_blank" rel="noreferrer" className="btn-main">
-                    {t('projects.viewProject')}
-                  </a>
-                  <a href={project.repository} target="_blank" rel="noreferrer" className="btn-git">
-                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12z" /></svg>
-                  </a>
+                <div className="relative mt-7 flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-primary">
+                  <span>{t("viewProject")}</span>
+                  <span className="h-px w-8 bg-primary transition-all duration-500 group-hover:w-16" />
                 </div>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+              </motion.a>
+            </AnimatePresence>
+          </div>
+          <button
+            onClick={prevSlide}
+            aria-label="Projeto anterior"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-surface/80 backdrop-blur-md text-foreground transition-all duration-300 hover:border-primary/40 hover:bg-primary hover:text-primary-foreground sm:-left-5 sm:h-12 sm:w-12"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+
+          <button
+            onClick={nextSlide}
+            aria-label="Próximo projeto"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-surface/80 backdrop-blur-md text-foreground transition-all duration-300 hover:border-primary/40 hover:bg-primary hover:text-primary-foreground sm:-right-5 sm:h-12 sm:w-12"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+          <div className="mt-8 flex items-center justify-center gap-2">
+            {projects.map((p, idx) => (
+              <button
+                key={p.n}
+                onClick={() => goToSlide(idx)}
+                aria-label={`Ir para o projeto ${p.name}`}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  currentIndex === idx
+                    ? "w-8 bg-primary"
+                    : "w-2.5 bg-white/20 hover:bg-white/40"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
