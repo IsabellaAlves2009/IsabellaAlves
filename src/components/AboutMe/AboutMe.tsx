@@ -81,8 +81,8 @@ export function About() {
             </p>
 
             <div className="grid grid-cols-2 gap-4 pt-4">
-              <Stat value="4+"  label={t("statYears")} />
-              <Stat value="40+" label={t("statProjects")} />
+              <Stat value="5+"  label={t("statYears")} />
+              <Stat value="50+" label={t("statProjects")} />
             </div>
           </motion.div>
         </div>

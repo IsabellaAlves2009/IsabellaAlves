@@ -45,8 +45,8 @@ const contacts = [
   {
     icon: Mail,
     label: "Email",
-    value: "bella.s.alves2005@gmail.com",
-    href: "mailto:bella.s.alves2005@gmail.com",
+    value: "isabellaalves.dev@gmail.com",
+    href: "mailto:isabellaalves.dev@gmail.com",
   },
   {
     icon: MessageCircle,
@@ -57,8 +57,8 @@ const contacts = [
   {
     icon: InstagramIcon,
     label: "Instagram",
-    value: "@itzisahalves",
-    href: "https://www.instagram.com/itzisahalves/",
+    value: "@isabellaalves.dev",
+    href: "https://www.instagram.com/isabellaalves.dev/",
   },
   {
     icon: LinkedinIcon,

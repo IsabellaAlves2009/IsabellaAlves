@@ -51,8 +51,6 @@ export function Stack() {
             <TechItem key={tech.name} tech={tech} index={i} />
           ))}
         </div>
-
-        {/* Marquee belt */}
         <div className="relative mt-16 overflow-hidden border-y border-white/5 py-5 sm:mt-20 sm:py-6 [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
           <div className="flex animate-marquee gap-8 whitespace-nowrap font-display font-semibold text-[clamp(1.5rem,3vw,2.5rem)] sm:gap-12">
             {[...stack, ...stack, ...stack].map((s, i) => (
