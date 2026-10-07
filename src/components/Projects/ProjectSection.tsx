@@ -7,26 +7,6 @@ import { SectionHeader } from "../AboutMe/AboutMe";
 const projects = [
   {
     n: "01",
-    name: "Movie Explorer",
-    desc: {
-      pt: "Plataforma dinâmica para explorar o universo do cinema, com filtros inteligentes e interface centrada no usuário.",
-      en: "A dynamic platform to explore the world of cinema, featuring smart filters and a user-centric interface.",
-    },
-    tags: ["React", "TypeScript", "Framer Motion"],
-    url: "https://movie-explorer-nu-sand.vercel.app/",
-  },
-  {
-    n: "02",
-    name: "Weather Dashboard",
-    desc: {
-      pt: "Dashboard de clima moderno em React com dados em tempo real e design totalmente responsivo.",
-      en: "Modern React weather dashboard with real-time data and responsive design.",
-    },
-    tags: ["React", "JavaScript", "Tailwind", "CSS"],
-    url: "https://weatherappdashboard.vercel.app/",
-  },
-  {
-    n: "03",
     name: "Smash Burguer",
     desc: {
       pt: "Site de restaurante moderno e responsivo com foco em experiência visual fluida.",
@@ -36,7 +16,7 @@ const projects = [
     url: "https://smashburguer.vercel.app/",
   },
   {
-    n: "04",
+    n: "02",
     name: "Health Prime",
     desc: {
       pt: "Landing page para um app de saúde, projetada para ser visualmente atraente e otimizada para conversão.",
@@ -46,7 +26,17 @@ const projects = [
     url: "https://healthprimeweb.vercel.app/",
   },
   {
-    n: "05",
+    n: "03",
+    name: "Elora Estética",
+    desc: {
+      pt: "Site para clínica de estética, com design elegante e responsivo, destacando os serviços oferecidos.",
+      en: "A website for a beauty clinic, featuring an elegant and responsive design that highlights the services offered.",
+  },
+    tags: ["React", "TailwindCSS", "Typescript", "node.js"],
+    url: "https://eloraestetica.vercel.app/",
+  },
+  {
+    n: "04",
     name: "L'Art Sucré Cake",
     desc: {
       pt: "Site elegante para uma confeitaria artesanal, com identidade visual delicada e refinada.",

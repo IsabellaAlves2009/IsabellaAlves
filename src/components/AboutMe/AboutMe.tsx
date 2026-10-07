@@ -59,7 +59,7 @@ export function About() {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                 <span>Isabella Alves</span>
-                <span className="text-primary">/ FE</span>
+                <span className="text-primary">/ IA</span>
               </div>
             </div>
           </motion.div>
